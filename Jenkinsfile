@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'poll SCM Test'
+                echo 'poll SCM Test 2'
             }
         }
     }
