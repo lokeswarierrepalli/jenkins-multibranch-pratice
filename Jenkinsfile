@@ -14,16 +14,18 @@ pipeline {
             }
         }
 
-        stage('Blue-Green Deployment') {
+        stage('Rolling Deployment') {
     steps {
-        echo 'Blue environment: current production'
-        echo 'Green environment: deploying new version'
-        echo 'Testing Green environment...'
-        echo 'Green environment is healthy'
-        input message: 'Switch traffic from Blue to Green?', ok: 'Switch'
-        echo 'Traffic switched from Blue to Green'
-        echo 'Blue-Green deployment successful'
-    
+        echo 'Deploying to server 1...'
+        echo 'Server 1 deployment successful'
+
+        echo 'Deploying to server 2...'
+        echo 'Server 2 deployment successful'
+
+        echo 'Deploying to server 3...'
+        echo 'Server 3 deployment successful'
+
+        echo 'Rolling deployment completed successfully'
     
             }
         }
