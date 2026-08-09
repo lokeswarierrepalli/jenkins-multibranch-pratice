@@ -13,20 +13,17 @@ pipeline {
                 echo 'GitHub Webhook Test'
             }
         }
-
-        stage('Rolling Deployment') {
+       stage('Canary Deployment') {
     steps {
-        echo 'Deploying to server 1...'
-        echo 'Server 1 deployment successful'
+        echo 'Deploying new version to 10% of users...'
+        echo 'Monitoring canary deployment...'
+        echo 'Canary is healthy'
 
-        echo 'Deploying to server 2...'
-        echo 'Server 2 deployment successful'
+        input message: 'Approve rollout to 100% of users?', ok: 'Rollout'
 
-        echo 'Deploying to server 3...'
-        echo 'Server 3 deployment successful'
-
-        echo 'Rolling deployment completed successfully'
-    
+        echo 'Rolling out new version to 100% of users...'
+        echo 'Canary deployment completed successfully'
+        
             }
         }
     }
