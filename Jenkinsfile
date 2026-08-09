@@ -13,17 +13,13 @@ pipeline {
                 echo 'GitHub Webhook Test'
             }
         }
-       stage('Canary Deployment') {
+       stage('Docker Deployment') {
     steps {
-        echo 'Deploying new version to 10% of users...'
-        echo 'Monitoring canary deployment...'
-        echo 'Canary is healthy'
-
-        input message: 'Approve rollout to 100% of users?', ok: 'Rollout'
-
-        echo 'Rolling out new version to 100% of users...'
-        echo 'Canary deployment completed successfully'
-        
+        sh 'docker build -t jenkins-demo:latest .'
+        sh 'docker rm -f jenkins-demo || true'
+        sh 'docker run -d --name jenkins-demo -p 8080:80 jenkins-demo:latest'
+        echo 'Docker deployment completed successfully'
+    
             }
         }
     }
