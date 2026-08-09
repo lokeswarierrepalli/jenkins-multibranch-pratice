@@ -14,10 +14,10 @@ pipeline {
             }
         }
 
-        stage('Manual Deploy') {
+        stage('Continous Deploy') {
             steps {
-                input message: 'Deploy to production?', ok: 'Deploy'
-                echo 'Manual deployment successful'
+                echo 'Automatically deploying application...'
+                echo 'Continous deployment successful'
             }
         }
     }
