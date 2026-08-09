@@ -14,10 +14,12 @@ pipeline {
             }
         }
 
-        stage('Continous Deploy') {
-            steps {
-                echo 'Automatically deploying application...'
-                echo 'Continous deployment successful'
+        stage('Continuous Delivery') {
+    steps {
+        echo 'Build and tests completed'
+        input message: 'Approve release to production?', ok: 'Release'
+        echo 'Release ready for production'
+    
             }
         }
     }
