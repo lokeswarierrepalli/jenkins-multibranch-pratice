@@ -13,6 +13,13 @@ pipeline {
                 echo 'GitHub Webhook Test'
             }
         }
+
+        stage('Manual Deploy') {
+            steps {
+                input message: 'Deploy to production?', ok: 'Deploy'
+                echo 'Manual deployment successful'
+            }
+        }
     }
 
     post {
