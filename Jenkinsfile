@@ -17,7 +17,7 @@ pipeline {
     steps {
         sh 'docker build -t jenkins-demo:latest .'
         sh 'docker rm -f jenkins-demo || true'
-        sh 'docker run -d --name jenkins-demo -p 8080:80 jenkins-demo:latest'
+        sh 'docker run -d --name jenkins-demo -p 8081:80 jenkins-demo:latest'
         echo 'Docker deployment completed successfully'
     
             }
