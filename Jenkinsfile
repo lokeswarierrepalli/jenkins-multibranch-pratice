@@ -14,11 +14,16 @@ pipeline {
             }
         }
 
-        stage('Continuous Delivery') {
+        stage('Blue-Green Deployment') {
     steps {
-        echo 'Build and tests completed'
-        input message: 'Approve release to production?', ok: 'Release'
-        echo 'Release ready for production'
+        echo 'Blue environment: current production'
+        echo 'Green environment: deploying new version'
+        echo 'Testing Green environment...'
+        echo 'Green environment is healthy'
+        input message: 'Switch traffic from Blue to Green?', ok: 'Switch'
+        echo 'Traffic switched from Blue to Green'
+        echo 'Blue-Green deployment successful'
+    
     
             }
         }
